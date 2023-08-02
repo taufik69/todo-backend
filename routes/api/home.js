@@ -1,10 +1,5 @@
 const express = require("express");
 const _ = express.Router();
-_.get("/postinfo", async (req, res) => {
-  try {
-    res.send("post item");
-  } catch (error) {
-    res.send("thank you");
-  }
-});
+const employeeInfo = require("../../controller/employeeInfo");
+_.post("/postinfo", employeeInfo);
 module.exports = _;
