@@ -27,11 +27,19 @@ const employeeInfo = async (req, res) => {
         employeId,
       }).save();
       res.status(400).json({
-        data: sendUserData,
+        data: {
+          sucess: "Sucessfull upload",
+          fullName,
+          email,
+          degisnation,
+          employeId,
+        },
       });
     }
   } catch (error) {
-    res.send("thank you");
+    res.status(400).json({
+      error: error,
+    });
   }
 };
 module.exports = employeeInfo;
