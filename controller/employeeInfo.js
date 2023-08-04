@@ -20,13 +20,14 @@ const employeeInfo = async (req, res) => {
         error: "employeId Missing",
       });
     } else {
-      const sendUserData = await new user({
+      const sendUserData = new user({
         fullName,
         email,
         degisnation,
         employeId,
-      }).save();
-      res.status(400).json({
+      });
+      sendUserData.save();
+      res.status(200).json({
         data: {
           sucess: "Sucessfull upload",
           fullName,
@@ -37,9 +38,10 @@ const employeeInfo = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({
+    res.status(404).json({
       error: error,
     });
   }
 };
+
 module.exports = employeeInfo;
