@@ -19,7 +19,9 @@ const deleteUser = async (req, res) => {
       employeId: deletedata.employeId,
     });
     await trashSaveData.save();
-    res.json({ message: "Item deleted and new model created successfully" });
+    res.json({
+      message: "Item deleted and new model created successfully",
+    });
   } catch (error) {
     console.log("delete error: ", error);
   }
